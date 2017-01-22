@@ -16,7 +16,7 @@
           		<security:intercept-url pattern="/home" access="permitAll" />
           		<security:intercept-url pattern="/admin**" access="permitAll" />
           		<security:intercept-url pattern="/dba**" access="permitAll" />
-          		<security:form-login authentication-failure-url="/Access_Denied" />
+          		<security:form-login authentication-failure-url="/accessDenied" />
           </security:http>
           
           <security:authentication-manager>
