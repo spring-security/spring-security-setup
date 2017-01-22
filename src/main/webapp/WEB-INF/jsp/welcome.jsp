@@ -9,5 +9,7 @@
 </head>
 <body>
 欢迎 : ${greeting}, 这是欢迎页面。
+第一：<a href="<c:url value="/admin" />">admin页面</a><br/>
+第二：<a href="<c:url value="/dba" />">dba页面</a><br/>
 </body>
 </html>

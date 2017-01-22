@@ -34,7 +34,7 @@ public class HelloWorldController {
 		return "admin";
 	}
 
-	@RequestMapping(value = "/db", method = RequestMethod.GET)
+	@RequestMapping(value = "/dba", method = RequestMethod.GET)
 	public String dbaPage(ModelMap model) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String userName = principal instanceof UserDetails ? ((UserDetails) principal)
