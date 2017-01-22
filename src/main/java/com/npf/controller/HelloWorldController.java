@@ -25,22 +25,22 @@ public class HelloWorldController {
 		return "welcome";
 	}
 
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/index", method = RequestMethod.GET)
 	public String adminPage(ModelMap model) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String userName = principal instanceof UserDetails ? ((UserDetails) principal)
 				.getUsername() : principal.toString();
 		model.addAttribute("user", userName);
-		return "admin";
+		return "admin/index";
 	}
 
-	@RequestMapping(value = "/dba", method = RequestMethod.GET)
+	@RequestMapping(value = "/dba/index", method = RequestMethod.GET)
 	public String dbaPage(ModelMap model) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String userName = principal instanceof UserDetails ? ((UserDetails) principal)
 				.getUsername() : principal.toString();
 		model.addAttribute("user", userName);
-		return "dba";
+		return "dba/index";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

@@ -5,11 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>欢迎页面</title>
+<title>admin页面</title>
 </head>
 <body>
-欢迎 : ${greeting}, 这是欢迎页面。<br/>
-第一：<a href="<c:url value="/admin/index" />">admin页面</a><br/>
-第二：<a href="<c:url value="/dba/index" />">dba页面</a><br/>
+Dear <strong>${user}</strong>, Welcome to admin页面.<br/>
+<a href="<c:url value="/logout" />">Logout</a>
 </body>
 </html>
