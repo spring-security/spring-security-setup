@@ -6,5 +6,27 @@
           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
           http://www.springframework.org/schema/security
           http://www.springframework.org/schema/security/spring-security.xsd">
+          
+          
+          <bean id="securityContextLogoutHandler" 
+          		class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler"/>
+          
+          <security:http>
+          		<security:intercept-url pattern="/" access="permitAll" />
+          		<security:intercept-url pattern="/home" access="permitAll" />
+          		<security:intercept-url pattern="/admin**" access="permitAll" />
+          		<security:intercept-url pattern="/dba**" access="permitAll" />
+          		<security:form-login authentication-failure-url="/Access_Denied" />
+          </security:http>
+          
+          <security:authentication-manager>
+          		<security:authentication-provider>
+          			<security:user-service>
+          				<security:user name="jack" password="jack123" authorities="ROLE_USER"/>
+          				<security:user name="admin" password="admin123" authorities="ROLE_ADMIN"/>
+          				<security:user name="dba" password="dba123" authorities="ROLE_ADMIN,ROLE_DBA"/>
+          			</security:user-service>
+          		</security:authentication-provider>
+          </security:authentication-manager>
     
 </beans>
