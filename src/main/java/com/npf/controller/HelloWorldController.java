@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HelloWorldController {
 	
 	@Autowired
-	private  SecurityContextLogoutHandler securityContextLogoutHandler;
+	private SecurityContextLogoutHandler securityContextLogoutHandle;
 
 	@RequestMapping(value = {"/home"}, method = RequestMethod.GET)
 	public String homePage(ModelMap model) {
@@ -47,9 +47,9 @@ public class HelloWorldController {
 	public String logoutPage(HttpServletRequest request,HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null) {
-			securityContextLogoutHandler.logout(request, response, auth);
+			securityContextLogoutHandle.logout(request, response, auth);
 		}
-		return "welcome";
+		return "redirect:/home";
 	}
 
 	@RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
